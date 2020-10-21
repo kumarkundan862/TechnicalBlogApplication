@@ -1,0 +1,25 @@
+<!Doctype html>
+
+<html xmlns:th="http://thymeleaf.org">
+     <head th:fragment="site-head"></head>
+
+     <body>
+         <header th:fragment="logged-out" th:remove="tag">
+               <header>
+                  <a href="users/login.html" th:href="@{users/login}">Login</a>
+                  <a href="users/registration.html" th:href="@{users/registration}">Registration</a>
+               </header>
+         </header>
+
+         <!--defined the "logged in fragment of posts.html file" here-->
+         <header th:fragment="logged-in" th:remove="tag">
+             <header>
+                 <!-- <form method="post"> same as below line, changed just with
+                 a little addition of th:action="@{users/logout} to implement logout button -->
+                 <form method="post" th:action="@{users/logout}">
+                     <input type="submit" value="Logout"/>
+                 </form>
+             </header>
+     </body>
+
+</html>
