@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import technicalblog.model.Post;
 import technicalblog.service.PostService;
 
@@ -13,13 +14,24 @@ import java.util.ArrayList;
 public class PostController {
 
     @Autowired
-    private PostService postservice;
+    private PostService postService;
 
     @RequestMapping("posts")
     public String getUserPosts(Model model){
-        ArrayList<Post> posts = postservice.getOnePost();
+        ArrayList<Post> posts = postService.getOnePost();
         model.addAttribute("posts", posts);
         return "posts"; //here posts refers to the posts.html file
+    }
+
+    @RequestMapping("posts/newPost")
+    public String createPost(){
+        return "post/createPost";
+    }
+
+    @RequestMapping(value = "/posts/create", method = RequestMethod.POST)
+    public String createPost(Post newPost) {
+        postService.createPost(newPost);
+        return "redirect:/posts";
     }
 
 }
