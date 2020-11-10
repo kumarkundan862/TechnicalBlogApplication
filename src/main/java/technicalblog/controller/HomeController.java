@@ -9,6 +9,7 @@ import technicalblog.service.PostService;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -56,7 +57,8 @@ public class HomeController {
         posts.add(post3);
 
  */
-        ArrayList<Post> posts = postService.getAllPosts();
+        //ArrayList<Post> posts = postService.getAllPosts();
+        List<Post> posts = postService.getAllPosts();
 
         model.addAttribute("posts", posts);
 

@@ -20,10 +20,24 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-        <!--adding dynamic MVC dependency to implement the view resolution/resolver part -->
+        <!--adding dynamic MVC dependency to implement template part -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!--JPA specification dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!--adding driver of postgres -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+            <scope>runtime</scope>
         </dependency>
 
 
